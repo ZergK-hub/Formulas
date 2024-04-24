@@ -15,6 +15,11 @@
 \pd{(S_w \phi \rho_w)}{t}=\phi \rho_w \pd{S_w}{t}+S_w \rho_w \pd{\phi}{t}+S_w \phi \pd{\rho_w}{t}
 \end{equation}
 
+Определение изотермической сжимаемости
+\begin{equation}
+c_l=\frac{1}{\rho_l}\pd{\rho}{p}
+\end{equation}
+
 Зависимость пористости от давления
 \begin{equation}\label{eq:porosity_vs_p}
 \phi = \phi^0 [1+c_r (p-p^0)]
@@ -40,12 +45,11 @@ B_l=\frac{\rho_{lsc}}{\rho_l}=\frac{B^0_l}{1+c_l(p-p^0)}
 \pd{\rho}{t}=\pd{\rho}{p} \pd{p}{t}
 \end{equation}
 
-Подставляя в уравнение \ref{eq:chain_rule} выражения \ref{eq:porosity_vs_p}, \ref{eq:derivative_phi},\ref{eq_rho_vs_p}, \ref{eq:derivative_rho} получим
+Подставляя в уравнение \ref{eq:chain_rule} выражения \ref{eq:porosity_vs_p}, \ref{eq:derivative_phi},\ref{eq_rho_vs_p}, \ref{eq:derivative_rho} и 
+поделив на $\rho_l$ получим
 
-\begin{multline}\label{eq:chain_rule}
-\pd{(S_w \phi \rho_w)}{t}=\phi (\rho^0_l[1+c_l(p-p^0)]) \pd{S_w}{t}+ \\
-S_w (\rho^0_l[1+c_l(p-p^0)]) (\phi^0[1+c_r (p-p^0)]) \pd{p}{t}+ \\
-S_w \phi \rho^0_l c_l \pd{p}{t}
+\begin{multline}\label{eq:ext_chain_rule}
+\pd{(S_w \phi \rho_w)}{t}=\phi \pd{S_w}{t}+ S_w \phi^0 c_r \pd{p}{t}+ S_w \phi c_l \pd{p}{t}
 \end{multline}
 
 \end{document}
