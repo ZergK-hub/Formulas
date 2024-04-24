@@ -1,0 +1,51 @@
+\input{Preamble.tex}
+
+\begin{document}
+
+Уравнение баланса масс для двух фаз: воды и нефти
+
+\begin{equation}\label{eq:common_equation_multiphase_rho}
+\begin{split}
+	\pd{(S_w \phi \rho_w)}{t} + \dv(\rho_w \bm{v}_{rw})    &= \rho_w q_w, \quad \bm{v}_{rw}=-\frac{K k_{rw}}{\mu_w}\nabla p_w,\\
+	\pd{(S_o \phi \rho_o)}{t} + \dv(\rho_o \bm{v}_{ro})  &= \rho_o q_o, \quad \bm{v}_{ro}=-\frac{K k_{ro}}{\mu_o}\nabla p_o.
+\end{split}
+\end{equation}
+Правило производной произведения
+\begin{equation}\label{eq:chain_rule}
+\pd{(S_w \phi \rho_w)}{t}=\phi \rho_w \pd{S_w}{t}+S_w \rho_w \pd{\phi}{t}+S_w \phi \pd{\rho_w}{t}
+\end{equation}
+
+Зависимость пористости от давления
+\begin{equation}\label{eq:porosity_vs_p}
+\phi = \phi^0 [1+c_r (p-p^0)]
+\end{equation}
+
+Правило производной сложной функции $\phi=\phi(p)$
+\begin{equation}\label{eq:derivative_phi}
+\pd{\phi}{t}=\pd{\phi}{p} \pd{p}{t}
+\end{equation}
+
+Объемный коэффициент фазы $l$
+\begin{equation}\label{eq:FVF}
+B_l=\frac{\rho_{lsc}}{\rho_l}=\frac{B^0_l}{1+c_l(p-p^0)}
+\end{equation}
+
+Зависимость плотности от давления
+\begin{equation}\label{eq_rho_vs_p}
+\rho_l=\rho^0_l[1+c_l(p-p^0)]
+\end{equation}
+
+Правило производной сложной функции $\rho=\rho(p)$
+\begin{equation}\label{eq:derivative_rho}
+\pd{\rho}{t}=\pd{\rho}{p} \pd{p}{t}
+\end{equation}
+
+Подставляя в уравнение \ref{eq:chain_rule} выражения \ref{eq:porosity_vs_p}, \ref{eq:derivative_phi},\ref{eq_rho_vs_p}, \ref{eq:derivative_rho} получим
+
+\begin{multline}\label{eq:chain_rule}
+\pd{(S_w \phi \rho_w)}{t}=\phi (\rho^0_l[1+c_l(p-p^0)]) \pd{S_w}{t}+ \\
+S_w (\rho^0_l[1+c_l(p-p^0)]) (\phi^0[1+c_r (p-p^0)]) \pd{p}{t}+ \\
+S_w \phi \rho^0_l c_l \pd{p}{t}
+\end{multline}
+
+\end{document}
